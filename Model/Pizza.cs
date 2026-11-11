@@ -23,7 +23,7 @@ public class Pizza
 
     public decimal GetBasePrice()
     {
-        return ((decimal)Size / (decimal)DefaultSize) * Special.BasePrice;
+        return Math.Round(((decimal)Size / (decimal)DefaultSize) * Special.BasePrice, 0);
     }
 
     public decimal GetTotalPrice()
@@ -33,6 +33,6 @@ public class Pizza
 
     public string GetFormattedTotalPrice()
     {
-        return GetTotalPrice().ToString("0.00");
+        return GetTotalPrice().ToString("N0", new System.Globalization.CultureInfo("es-CO"));
     }
 }
